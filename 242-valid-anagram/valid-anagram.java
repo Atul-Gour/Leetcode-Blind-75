@@ -5,9 +5,7 @@ class Solution {
         for(char i: s.toCharArray())character[i-'a']++;
         for(char i:t.toCharArray()){
             character[i-'a']--;
-        }
-        for(int i: character){
-            if(i!=0)return false;
+            if(character[i-'a']<0)return false;
         }
         return true;
     }
