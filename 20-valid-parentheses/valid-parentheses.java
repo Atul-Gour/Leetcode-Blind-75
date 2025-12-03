@@ -12,7 +12,6 @@ class Solution {
         
         int[] arr = {0,4,5,6};
 
-        Stack<Integer> open = new Stack<>();
         Stack<Integer> close = new Stack<>();
         
 
@@ -24,17 +23,15 @@ class Solution {
                 else{
                     if(close.peek()!=curr)return false;
                     else{
-                        open.pop();
                         close.pop();
                     }
                     
                 }
             }else{
-                open.push(curr);
                 close.push(arr[curr]);
             }
         }
-        if(!open.isEmpty() || !close.isEmpty())return false;
+        if(!close.isEmpty())return false;
         return true;
     }
 }
