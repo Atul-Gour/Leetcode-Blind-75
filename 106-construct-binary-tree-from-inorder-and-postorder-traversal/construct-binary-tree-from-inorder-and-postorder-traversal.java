@@ -17,17 +17,17 @@ class Solution {
 
 int postIndex;
 
-public TreeNode build(HashMap<Integer,Integer> map,int start,int end, int[] postorder){
-if(start > end) return null;
-int rootNode= postorder[postIndex--];
-TreeNode root=new TreeNode(rootNode);
+    public TreeNode build(HashMap<Integer,Integer> map,int start,int end, int[] postorder){
+        if(start > end) return null;
+        int rootNode= postorder[postIndex--];
+        TreeNode root=new TreeNode(rootNode);
 
-int index=map.get(rootNode);
-root.right=build(map,index+1,end,postorder);
-root.left=build(map,start,index-1,postorder);
+        int index=map.get(rootNode);
+        root.right=build(map,index+1,end,postorder);
+        root.left=build(map,start,index-1,postorder);
 
-return root;
-}
+        return root;
+    }
 
 
     public TreeNode buildTree(int[] inorder, int[] postorder){
